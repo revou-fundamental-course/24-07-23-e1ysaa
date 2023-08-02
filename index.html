@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	
+		<title>Trip | Elevate</title>
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
+		<link rel="stylesheet" href="./css/reset.css">
+		<link rel="stylesheet" href="./css/style.css">
+		<link rel="icon" href="./assets/favicon.png" type="image/png">
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js" integrity="sha512-24XP4a9KVoIinPFUbcnjIjAjtS59PUoxQj3GNVpWc86bCqPuy3YxAcxJrxFCxXe4GHtAumCbO2Ze2bddtuxaRw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	</head>
+	<body>
+
+		<!-- Header Section -->
+		<header class="header">
+			<div class="container">
+				<nav class="navbar">
+					<div class="logo">
+						<img src="./assets/elevate-white.svg" alt="elevate logo" />
+					</div>
+					<button class="menu-button" id="menu-button" onclick="toggleMenuButton()">
+						<i data-feather="menu"></i>
+					</button>
+					<ul class="navigation-list" id="menu-list">
+						<li><a href="#hero" onclick="setTitle(this)">Home</a></li>
+						<li><a href="#our-package" onclick="setTitle(this)">Our Package</a></li>
+						<li><a href="#call-us" onclick="setTitle(this)">Call Us</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		<!-- slider -->
+		<main class="main-content">
+			<div class="hero" id="hero">
+				<div class="hero-slider" id="hero-slider">
+					<img id="slide1" src="./assets/images/banner1.jpg" alt="" />
+					<img id="slide2" src="./assets/images/banner2.jpg" alt="" />
+					<img id="slide3" src="./assets/images/banner3.jpg" alt="" />
+					<img id="slide4" src="./assets/images/banner4.jpg" alt="" />
+					<img id="slide5" src="./assets/images/banner5.jpg" alt="" />
+					<img id="slide6" src="./assets/images/banner6.jpg" alt="" />
+					<img id="slide7" src="./assets/images/banner1.jpg" alt="" />
+					<img id="slide8" src="./assets/images/banner2.jpg" alt="" />
+				</div>
+				<div class="hero-wrapper">
+					<h1 class="main-title">Your Trusted Travel Agent</h1>
+					<p class="hero-description">Your happiness is our happiness</p>
+					<button class="button" onclick="getStartButton()">Get started!</button>
+				</div>
+			</div>
+
+			<!-- about; what they say about us -->
+			<div class="container">
+				<div class="about-contact" id="about">
+					<div class="about">
+						<img src="./assets/images/promotional.jpg" alt="View of Valletta, Malta" class="about-img" />
+						<p class="about-caption">Vacations become fun with my travel agent.<br> With Elevate anytime, anywhere!</p></br>
+						<div class="about-author">
+							<img src="./assets/images/avatar.jpg" alt="" class="author-img" />
+							<div class="author-data">
+								<div class="author-name">Florence Hughes</div>
+								<div class="author-info">Housewife, 28</div>
+							</div>
+						</div>
+
+						<hr class="border" />
+
+						<!-- Our features/benefits -->
+						<div class="feature">
+							<h2 class="subsection-title">What benefits will you get if choosing us:</h2>
+							<div class="feature-list">
+								<div class="feature-item">
+									<div class="feature-icon">
+										<i data-feather="check-circle"></i>
+									</div>
+									<div class="feature-description">All time favorite destinations around the world</div>
+								</div>
+								<div class="feature-item">
+									<div class="feature-icon">
+										<i data-feather="check-circle"></i>
+									</div>
+									<div class="feature-description">Fast and super easy booking payments anytime, anywhere</div>
+								</div>
+								<div class="feature-item">
+									<div class="feature-icon">
+										<i data-feather="check-circle"></i>
+									</div>
+									<div class="feature-description">Hot deals and rewards for you in every trip</div>
+								</div>
+								<div class="feature-item">
+									<div class="feature-icon">
+										<i data-feather="check-circle"></i>
+									</div>
+									<div class="feature-description">Money guarantee 90% after you cancelled bookings</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- form section -->
+					<div class="contact">
+						<h2 class="subsection-title">Contact Us</h2>
+						<p>Our sales will reach out to you max 1x24 hrs after we receive your data</p>
+						<form class="contact-form" name="contact-form" onsubmit="return validateForm()">
+							<div class="form-field">
+								<label for="name" class="input-label">Your name:</label>
+								<input type="text" id="name" name="name" class="input-field" placeholder="First name and last name" oninput="fillInput('name')" />
+								<p class="error-msg" id="name-error">Please fill your name</p>
+							</div>
+							<div class="form-field">
+								<label for="email" class="input-label">Email Address:</label>
+								<input type="text" id="email" name="email" class="input-field" placeholder="example@email.com" oninput="fillInput('email')" />
+								<p class="error-msg" id="email-error">Please fill your email with a correct format</p>
+							</div>
+							<div class="form-field">
+								<label for="interest" class="input-label">What are you interested in?</label>
+								<select id="interest" name="interest" class="input-field" oninput="selectInterest()">
+									<option value="none" selected disabled>Select option</option>
+									<option value="option 1">Island Hopping</option>
+									<option value="option 2">Sport & Adventures</option>
+									<option value="option 3">Culture & Arts</option>
+								</select>
+								<p class="error-msg" id="interest-error">Please select one interest</p>
+							</div>
+							<button type="submit" class="button">Send</button>
+						</form>
+					</div>
+				</div>
+			</div>
+
+			<div class="package" id="our-package">
+				<div class="package-banner">
+					<div class="container">
+						<h2 class="section-title">Our Packages</h2>
+					</div>
+				</div>
+
+				<!-- our package -->
+				<div class="container">
+					<div class="package-list">
+						<div class="package-item">
+							<div class="package-icon">
+								<i data-feather="compass"></i>
+							</div>
+							<div class="package-content">
+								<h3>Santorini</h3>
+								<p>Santorini is famous for the most beautiful sunset, colorful beaches, best wines and rich history</p>
+							</div>
+						</div>
+						<div class="package-item">
+							<div class="package-icon">
+								<i data-feather="compass"></i>
+							</div>
+							<div class="package-content">
+								<h3>Bern</h3>
+								<p>Strolling along the cobbled streets, visitors can explore the tallest cathedral in Switzerland with panoramic views from its tower</p>
+							</div>
+						</div>
+						<div class="package-item">
+							<div class="package-icon">
+								<i data-feather="compass"></i>
+							</div>
+							<div class="package-content">
+								<h3>Tuscany</h3>
+								<p>Indescribably gorgeous panoramic views, a wealth of architectural and artistic wonders, and cuisines</p>
+							</div>
+						</div>
+					</div>
+					<hr class="border" />
+					<div class="package-list">
+						<div class="package-item">
+							<div class="package-icon">
+								<i data-feather="star"></i>
+							</div>
+							<div class="package-content">
+								<h3>Himeji Castle</h3>
+								<p>A magnificent castle. Both the history and identity of Himeji city revolved around its castle, which has its origin in 1333</p>
+							</div>
+						</div>
+						<div class="package-item">
+							<div class="package-icon">
+								<i data-feather="star"></i>
+							</div>
+							<div class="package-content">
+								<h3>Louvre Museum</h3>
+								<p>A world-reowned art museum that contains a vast collection of artwork from various time periods and styles from ancient civilizations</p>
+							</div>
+						</div>
+						<div class="package-item">
+							<div class="package-icon">
+								<i data-feather="star"></i>
+							</div>
+							<div class="package-content">
+								<h3>Taj Mahal</h3>
+								<p>A universally admired masterpiece of art, the Taj Mahal combines elements from Islamic, Persian, and Indian architectural styles</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- call us; help&questions-->
+			<div class="cta" id="call-us">
+				<div class="container">
+					<h2 class="section-title">Connect with Us</h2>
+					<p>Do you have a question? Or have a plan in vacation? Hit the button bellow!</p>
+					<button class="button">Contact Us</button>
+				</div>
+			</div>
+		</main>
+		<footer class="footer">
+			<div class="container">
+				<div class="logo">
+					<img src="./assets/elevate-white.svg" alt="elevate logo" width="192" />
+				</div>
+				<ul class="footer-navigation">
+					<li><a href="#">Terms of Service</a></li>
+					<li><a href="#">Privacy Policy</a></li>
+				</ul>
+				<div>&copy; 2023 -elysanxiety</div>
+			</div>
+		</footer>
+
+		<script>
+			feather.replace();
+		</script>
+		<script src="./js/validation.js"></script>
+		<script src="./js/script.js"></script>
+		<script src="./js/slideShow.js"></script>
+	</body>
+</html>
